@@ -17,3 +17,5 @@
 5. Import the Varnish Cache template (``template-app-varnish.xml`` file).
 
 6. Add an existing / new host to the ``Varnish Cache servers`` group and link it to the ``Template App Varnish Cache`` template. Beware you must set a value for the ``{$VARNISH_CACHE_LOCATIONS}`` macro (comma-delimited list of Varnish Cache instance names). Usually you should leave its value blank when running a single Varnish Cache instance per server.
+
+7. Remember that "-s dev" must be the hostname set on the Zabbix server so if you use ``HostnameItem=system.hostname`` on zabbix_agentd.conf you have to use ``-s $(/usr/bin/hostname)`` (centos based).
